@@ -5,17 +5,16 @@ class BasicListApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var body2 = Column(
-      children: [
-        textSection,
-      ],
-    );
     var scaffold = Scaffold(
-      appBar: AppBar(
-        title: Text('Basic List Demo'),
-      ),
-      body: body2,
-    );
+        appBar: AppBar(
+          title: Text('Basic List Demo'),
+        ),
+        body: ListView(
+          children: [
+            userSection,
+            textSection,
+          ],
+        ));
     var materialApp = MaterialApp(
       title: 'Basic List Demo',
       home: scaffold,
@@ -24,8 +23,31 @@ class BasicListApp extends StatelessWidget {
   }
 }
 
-Widget userSection = Container();
+Widget userSection = Container(
+  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+  child: Row(
+    children: [
+      Icon(Icons.av_timer),
+      Padding(padding: EdgeInsets.only(right: 15)),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Oeschinen Lake Campground',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 4)),
+          Text(
+            'Kandersteg, Switzerland',
+            style: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey),
+          ),
+        ],
+      )
+    ],
+  ),
+);
 Widget textSection = Container(
+  padding: const EdgeInsets.all(20),
   child:
       Text('Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
           'Alps. Situated 1,578 meters above sea level, it is one of the '
